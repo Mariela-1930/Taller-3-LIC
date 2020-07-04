@@ -1,0 +1,2 @@
+# Taller 3 LIC
+ En un restaurante de la capital de San Salvador se vende pollo en un menú que tiene tres opciones. El menú más costoso es el super combo (tres piezas de pollo, ensalada, papas fritas y bebida grande de su elección) que tiene un precio de $7.25, el siguiente en costo es el combo personal con un precio de $5.75 (dos piezas de pollo, papa frita y bebida mediana) y por último el infantil a un precio de $3.50 (1 pieza de pollo, papas fritas y una bebida pequeña).
