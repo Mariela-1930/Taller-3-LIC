@@ -12,23 +12,24 @@
 
     <!--Group box-->
     <section>
-        <form name="groupbox">
+        <form action="javascript:void(0)">
             <fieldset class="menu">
                 <legend><span>Combos y Productos</span></legend>
                 <div></div>
                 <label for="text">Combos:</label> <br>
 
                 <!--Super combos-->
-                <input type="radio" id="supercombo">
-                <label for="supercombos">Super Combo</label>
+                <input type="radio" name="combo" id="supercombo">
+                <label for="supercombo">Super Combo</label>
 
                 <!--Combo personal-->
-                <input type="radio" id="combopersonal">
+                <input type="radio" name="combo" id="combopersonal">
                 <label for="combopersonal">Combo personal</label>
 
                 <!--Combo infantil-->
-                <input type="radio" id="comboinfantil">
+                <input type="radio" name="combo" id="comboinfantil">
                 <label for="comboinfantil">Combo infantil</label>
+
                 <br>
                 <br>
                 </div>
@@ -80,6 +81,8 @@
             </fieldset>
         </form>
     </section>
+    <script src="js/codigo.js"></script>
 </body>
+
 
 </html>
