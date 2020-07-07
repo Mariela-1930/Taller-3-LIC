@@ -4,85 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/codigo.js"></script>
+    <link rel="stylesheet" href="css/stilo.css">
     <title>Restaurante San Salvador</title>
 </head>
 
 <body>
-    <h1>ORDEN DE POLLO</h1>
+    <div id="elh1">
+        <h1><span id="ordende">ORDEN DE</span><span id="pollo"> POLLO</span></h1>
+    </div>
 
     <!--Group box-->
     <section>
-        <form action="javascript:void(0)">
+
+        <!--Form que contiene los combos del menu-->
+        <form action="javascript:void(0)" id="form">
             <fieldset class="menu">
                 <legend><span>Combos y Productos</span></legend>
-                <div></div>
-                <label for="text">Combos:</label> <br>
+                <br>
+                <label for="text" id="lbCombos">Combos:</label> <br>
 
                 <!--Super combos-->
-                <input type="radio" name="combo" id="supercombo">
-                <label for="supercombo">Super Combo</label>
+                <input type="radio" name="combo" id="supercombo" value="7.25" onclick="Mostrar()" checked> Super Combo
 
                 <!--Combo personal-->
-                <input type="radio" name="combo" id="combopersonal">
-                <label for="combopersonal">Combo personal</label>
+                <input type="radio" name="combo" id="combopersonal" value="5.75" onclick="Mostrar()"> Combo Personal
 
                 <!--Combo infantil-->
-                <input type="radio" name="combo" id="comboinfantil">
-                <label for="comboinfantil">Combo infantil</label>
-
+                <input type="radio" name="combo" id="comboinfantil" value="3.50" onclick="Mostrar()"> Combo Infantil
                 <br>
                 <br>
-                </div>
-                <!--Productos-->
-                <div>
-                    <label for="text">Productos:</label> <br>
-
-                    <input type="checkbox" id="ensalada">
-                    <label for="ensalada">Ensalada</label>
-
-                    <input type="checkbox" id="papasfritas">
-                    <label for="papasfritas">Papas fritas</label>
-
-                    <input type="checkbox" id="piezadepollogrande">
-                    <label for="piezadepollogrande">Pieza de pollo grande</label>
-
-                    <input type="checkbox" id="piezadepollomediana">
-                    <label for="piezadepollomediana">Pieza de pollo mediana</label>
-
-                    <input type="checkbox" id="piezadepollopequeña">
-                    <label for="piezadepollopequeña">Pieza de pollo pequeña</label>
-
-                    <input type="checkbox" id="bebidagrande">
-                    <label for="bebidagrande">Bebida grande</label>
-
-                    <input type="checkbox" id="bebidamediana">
-                    <label for="bebidamediana">Bebida mediana</label>
-
-                    <input type="checkbox" id="bebidapequeña">
-                    <label for="bebidapequeña">Bebida pequeña</label>
-
-                    <input type="checkbox" id="cafe">
-                    <label for="cafe">Café</label>
-
-                    <input type="checkbox" id="postre">
-                    <label for="postre">Postre</label>
-                </div>
-                <!--Sugerencias-->
-                <br><br>
-                <label for="text">Sugerencias:</label>
-                <input type="text" id="txtsugerencias">
-
-                <!--Total a pagar-->
-                <label for="text">Total a pagar> $</label>
-                <input type="number" id="txttotal">
-
-                <!--Boton submit-->
-                <input type="button" id="btnsubmit" value="Submit">
-            </fieldset>
         </form>
-    </section>
-    <script src="js/codigo.js"></script>
-</body>
+        </div>
 
+
+        <!--Form que contiene los productos que ofrece el restaurante-->
+
+        <label for="text">Productos:</label> <br>
+        <form id="form2" name="form2">
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="ensalada" value="1.50"> Ensalada
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="papasfritas" value="1.25"> Papas Fritas
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="piezadepollogrande" value="1.75">Pieza de pollo grande
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="piezadepollomediana" value="1.50">Pieza de pollo mediana
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="piezadepollopequeña" value="1.25">Pieza de pollo pequeña
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="bebidagrande" value="1.50"> Bebida Grande
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="bebidamediana" value="1.25"> Bebida Medina
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="bebidapequeña" value="1.00"> Bebida Pequeña
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="cafe" value="0.50"> Café
+
+            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="postre" value="1.25"> Postre
+        </form>
+
+
+        <!--Div que contiene las sugerencias que puede hacer el usuario si lo desea-->
+        <br><br>
+        <div>
+            <label for="text">Sugerencias:</label>
+            <br>
+            <input type="text" id="txtsugerencias">
+        </div>
+
+
+        <!--Input que contiene el Total a pagar-->
+        <br>
+        <br>
+        <div>
+            <label for="text">Total a pagar: $</label>
+            <input type="number" name="txttotal" id="total">
+        </div>
+        <br>
+
+
+        <!--Guarda las sugerencias que el usuario ingresa-->
+        <br>
+        <input type="button" id="btnsubmit" value="Submit">
+        </fieldset>
+
+    </section>
+</body>
 
 </html>
