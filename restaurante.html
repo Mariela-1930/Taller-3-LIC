@@ -25,52 +25,54 @@
                 <label for="text" id="lbCombos">Combos:</label> <br>
 
                 <!--Super combos-->
-                <input type="radio" name="combo" id="supercombo" value="7.25" onclick="Mostrar()" checked> Super Combo
+                <input type="radio" name="combo" class="leercombo" id="Super Combo" value="7.25" onclick="Mostrar()" checked> Super Combo
 
                 <!--Combo personal-->
-                <input type="radio" name="combo" id="combopersonal" value="5.75" onclick="Mostrar()"> Combo Personal
+                <input type="radio" name="combo" class="leercombo" id="Combo Personal" value="5.75" onclick="Mostrar()"> Combo Personal
 
                 <!--Combo infantil-->
-                <input type="radio" name="combo" id="comboinfantil" value="3.50" onclick="Mostrar()"> Combo Infantil
+                <input type="radio" name="combo" class="leercombo" id="Combo Infantil" value="3.50" onclick="Mostrar()"> Combo Infantil
                 <br>
                 <br>
         </form>
         </div>
 
-
+ 
         <!--Form que contiene los productos que ofrece el restaurante-->
 
         <label for="text">Productos:</label> <br>
         <form id="form2" name="form2">
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="ensalada" value="1.50"> Ensalada
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Ensalada" value="1.50"> Ensalada
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="papasfritas" value="1.25"> Papas Fritas
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Papas Fritas" value="1.25"> Papas Fritas
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="piezadepollogrande" value="1.75">Pieza de pollo grande
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Pieza de Pollo Grande" value="1.75">Pieza de pollo grande
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="piezadepollomediana" value="1.50">Pieza de pollo mediana
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Pieza de Pollo Mediana" value="1.50">Pieza de pollo mediana
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="piezadepollopequeña" value="1.25">Pieza de pollo pequeña
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Pieza de Pollo Pequeña" value="1.25">Pieza de pollo pequeña
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="bebidagrande" value="1.50"> Bebida Grande
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Bebida Grande" value="1.50"> Bebida Grande
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="bebidamediana" value="1.25"> Bebida Medina
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Bebida Mediana" value="1.25"> Bebida Medina
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="bebidapequeña" value="1.00"> Bebida Pequeña
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Bebida Pequeña" value="1.00"> Bebida Pequeña
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="cafe" value="0.50"> Café
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Cafe" value="0.50"> Café
 
-            <input type="checkbox" name="indi" onclick="restaProducto(this);" id="postre" value="1.25"> Postre
+            <input type="checkbox"  name="indi" onclick="restaProducto(this);" id="Postre" value="1.25"> Postre
         </form>
 
 
         <!--Div que contiene las sugerencias que puede hacer el usuario si lo desea-->
         <br><br>
-        <div>
-            <label for="text">Sugerencias:</label>
+        <div id="txtsugerencias">
+            <label for="text">Si tiene alguna sugerencia hacer lo siguiente
+            </label>
             <br>
-            <input type="text" id="txtsugerencias">
+            <input type="text" id="sugerencias" onclick="esconderDIV()">
+            <input type="button" value="habilitar" onclick="mostrarDIV() ">
         </div>
 
 
@@ -78,18 +80,32 @@
         <br>
         <br>
         <div>
+            <br>
+            <br>
             <label for="text">Total a pagar: $</label>
-            <input type="number" name="txttotal" id="total">
+            <input type="number" class="leertotal[]" name="txttotal" id="total">
         </div>
         <br>
 
 
         <!--Guarda las sugerencias que el usuario ingresa-->
         <br>
-        <input type="button" id="btnsubmit" value="Submit">
+        <input type="button" id="btnsubmit" value="Submit" onclick="productosCB(); LeerArreglo()">
         </fieldset>
 
     </section>
+    
+<input for="number" name="txtleercombo">
+<input for="number" name="txtleercombos">
+<input for="number" name="txtCBprecio">
+<input for="number" name="txtCB">
+
+
+<div id="factura">
+
+</div>
+
+
 </body>
 
 </html>
