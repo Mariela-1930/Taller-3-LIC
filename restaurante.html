@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/codigo.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    <script src="https://rawgit.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/codigo.js"></script>
     <link rel="stylesheet" href="css/stilo.css">
     <title>Restaurante San Salvador</title>
 </head>
@@ -65,12 +67,11 @@
 
         <!--Div que contiene las sugerencias que puede hacer el usuario si lo desea-->
         <br><br>
-        <div id="txtsugerencias">
-            <label for="text" class="advertencia">*Si tiene alguna sugerencia debe dar clic en el recuadro de abajo*</label>
-            <br>
-            <input type="text" id="sugerencias" onclick="esconderDIV()">
-            <input type="button" value="habilitar" onclick="mostrarDIV() ">
+        <div onclick="mostrarTextSugerencia()" id="divsugerencias">
+            <label for="text" id="advertenciaid" class="advertencia">*Si tiene alguna sugerencia debe dar clic sobre este texto (Div)*</label>
         </div>
+
+        <input type="text" id="sugerencias">
 
         <!--Input que contiene el Total a pagar-->
         <br>
@@ -100,4 +101,5 @@
         </table>
     </div>
 </body>
+
 </html>

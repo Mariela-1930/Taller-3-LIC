@@ -1,3 +1,6 @@
+var textosugerencia, boolsugerencia = false;
+
+
 //Muestra el valor del combo seleccionado
 function Mostrar() {
 
@@ -53,8 +56,7 @@ function sumaproducto() {
             //Imprime en el input la suma de los valores de los check box
             document.getElementsByName("txttotal")[0].value = totalPagar
 
-        }
-        else {
+        } else {
             //El total a pagar es la resta de el valor que esta en el input menos
             //los que no estan seleccionados en el arreglo
             totalPagar = parseFloat(totalCombo) - parseFloat(valor);
@@ -114,7 +116,7 @@ function LeerArreglo() {
             //Imprimir el nombre y precio del combo seleccionado
             document.getElementById("factura").innerHTML += "<h3 id='elh3'>FACTURA RESTAURANTE SAN SALVADOR</h3>"
             document.getElementById("filas").innerHTML += "<tr class='encabezado'><td>Producto</td><td>Precio</td></tr>";
-            document.getElementById("filas").innerHTML += "<tr><td>" + nombrecombo + "</td><td>$  " + preciocombo + "</td></tr>";
+            document.getElementById("filas").innerHTML += "<tr><td>" + nombrecombo + "</td><td>$" + preciocombo + "</td></tr>";
         }
     }
 }
@@ -148,8 +150,6 @@ function productosCB() {
             //Imprimimos los productos seleccionados con su nombre y precio
             document.getElementById("filas").innerHTML += "<tr><td>" + objeto[i].id + "</td><td>  $" + objeto[i].value + "</td></tr>";
         }
-        else {
-        }
     }
 }
 
@@ -167,24 +167,57 @@ function factura() {
 
     //Imprimimos el total de la compra
     document.getElementById("filas").innerHTML += "<tr class='pagar'><td>Total a pagar: </td><td>  $" + Total + "</td></tr>";
-}
 
-//Funcion para esconder el div de sugerencias
-function esconderDIV() {
-
-    //Asigna una variable para el input que almacena las sugerencias 
-    var txtsugerencias = document.getElementById("sugerencias");
-
-    //Se aplica la propiedad display none que oculta el input de sugerencias
-    txtsugerencias.style.display = 'none';
+    //Si hay sugerencia se imprime en la factura
+    if (boolsugerencia) {
+        document.getElementById("filas").innerHTML += "<tr class='pagar'><td>Sugerencia: " + textosugerencia + "</td><td></td></tr>";
+    }
 }
 
 //Funcion para mostrar div de sugerencia
-function mostrarDIV() {
-
-    //Asigna una variable para el input que almacena las sugerencias
-    var txtsugerencias = document.getElementById("sugerencias");
+function mostrarTextSugerencia() {
 
     //Se aplica la propiedad display block que hace visible el input de sugerencias
-    txtsugerencias.style.display = 'block';
+    document.getElementById("sugerencias").style.display = 'block';
+
+    //Se aplica la propiedad display none que hace invisable el div
+    document.getElementById("divsugerencias").style.display = 'none';
 }
+
+//Se ejecuta al cargar la página
+window.addEventListener("load", function() {
+
+    //Esconde el text donde se escribirá la sugerencia
+    document.getElementById("sugerencias").style.display = 'none';
+
+    //Llamada de método Mostrar
+    Mostrar();
+});
+
+//Combinaciones de teclas
+
+//Muestra el text sugerencias
+$(document).bind('keydown', 'ctrl+e', function() {
+
+    //Llamada de método MostrarTextSugerencia
+    mostrarTextSugerencia();
+});
+
+//Guarda la sugerencia
+$(document).bind('keydown', 'ctrl+s', function() {
+
+    //Bool que indica que sí hay una sugerencia
+    boolsugerencia = true;
+
+    //Se guarda la sugerencia del txt sugerencias
+    textosugerencia = document.getElementById("sugerencias").value;
+
+    //Se esconde el text de la sugerencia
+    document.getElementById("sugerencias").style.display = 'none';
+
+    //Se cambia el valor del label por un agradecimiento
+    document.getElementById('advertenciaid').innerHTML = '¡Gracias por tus sugerencias!';
+
+    //Se muestra el div
+    document.getElementById('divsugerencias').style.display = 'block';
+});
