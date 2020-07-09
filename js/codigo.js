@@ -92,93 +92,99 @@ function restaProducto(check) {
     }
 }
 
+//Funcion que lee l nombre y valor del radio button (Combos) para imprimir la factura
+function LeerArreglo() {
+
+    //Variable que toma los radio button
+    var radio = document.getElementsByName('combo');
+
+
+    //Arreglo que recorre todos los radio button
+    for (var i = 0; i < radio.length; i++) {
+
+        //Variable que guarda el costo del combo
+        var preciocombo = radio[i].value
+
+        //Variable que guarda el nombre del combo
+        var nombrecombo = radio[i].id;
+
+        //Evalua si el radio button esta con check
+        if (radio[i].checked) {
+
+            //Imprimir el nombre y precio del combo seleccionado
+            document.getElementById("factura").innerHTML += "<h3 id='elh3'>FACTURA RESTAURANTE SAN SALVADOR</h3>"
+            document.getElementById("filas").innerHTML += "<tr class='encabezado'><td>Producto</td><td>Precio</td></tr>";
+            document.getElementById("filas").innerHTML += "<tr><td>" + nombrecombo + "</td><td>$  " + preciocombo + "</td></tr>";
+        }
+    }
+}
+
+
+//Funcion que lee l nombre y valor del check box (Productos) para imprimir la factura
+function productosCB() {
+
+    //Variable que lee los check box del formulario 2 con el nombre indi 
+    var objeto = document.form2["indi"];
+
+    //Variable que almacena todos los checkbox y se convierte en arreglo 
+    var totalchecks = objeto.length;
+
+    //Se le dice al array que inicie en el primer valor del arreglo y que haga el recorrido
+    //aunque no esten seleccionados todos y vaya de uno en uno
+    for (i = 0; i < totalchecks; i++) {
+
+        //Asignamos una variable para el arreglo
+        valor = objeto[i]
+
+        //Verifica los productos que esten con check
+        if (objeto[i].checked == true) {
+
+            //Variable que almacena los precios de todos los check box seleccionados
+            var precioproducto = objeto[i].value;
+
+            //Variable que almacena los nombres de todos los check box seleccionados
+            var nombreproducto = objeto[i].id;
+
+            //Imprimimos los productos seleccionados con su nombre y precio
+            document.getElementById("filas").innerHTML += "<tr><td>" + objeto[i].id + "</td><td>  $" + objeto[i].value + "</td></tr>";
+        }
+        else {
+        }
+    }
+}
+
+//Funcion que imprime la factura
+function factura() {
+
+    //Llamamos al metodo que lee los combos
+    LeerArreglo();
+
+    //Llamamos al metodo que lee los productos
+    productosCB();
+
+    //Le damos una variable al objeto que esta almacenando la suma de la venta
+    Total = document.getElementById("total").value;
+
+    //Imprimimos el total de la compra
+    document.getElementById("filas").innerHTML += "<tr class='pagar'><td>Total a pagar: </td><td>  $" + Total + "</td></tr>";
+}
+
 //Funcion para esconder el div de sugerencias
 function esconderDIV() {
+
+    //Asigna una variable para el input que almacena las sugerencias 
     var txtsugerencias = document.getElementById("sugerencias");
+
+    //Se aplica la propiedad display none que oculta el input de sugerencias
     txtsugerencias.style.display = 'none';
 }
 
 //Funcion para mostrar div de sugerencia
 function mostrarDIV() {
+
+    //Asigna una variable para el input que almacena las sugerencias
     var txtsugerencias = document.getElementById("sugerencias");
+
+    //Se aplica la propiedad display block que hace visible el input de sugerencias
     txtsugerencias.style.display = 'block';
-}
-
-
-//Imprimir Productos y combos seleccionados por el usuario
-function LeerArreglo() {
-
-    //Variable que lee el nombre de los Radio Buttons
-    var radio = document.getElementsByName('combo');
-
-
-
-
-
-    //Arreglo que lee todos los radio button con el mismo name
-    for (var i = 0; i < radio.length; i++) {
-        var preciocombo = radio[i].value
-        var nombrecombo = radio[i].id;
-        //Evalua si el radio button esta con check
-        if (radio[i].checked) {
-
-            //variable que guarda el valor del radio button con check que se encontro en el arreglo
-            // var preciocombo = radio[i].value;
-
-            //variable que guarda el nombre del radio button con check que se encontro en el arreglo
-            //var nombrecombo = radio[i].id;
-
-            //Imprime el costo del radio button seleccionado
-            // document.getElementsByName('txtleercombo')[0].value = ("$ " + preciocombo);
-
-            //Imprime el nombre del combo seleccionado
-            //document.getElementsByName('txtleercombos')[0].value = nombrecombo;
-
-        document.getElementById("factura").innerHTML +="<h3 id='elh3'>FACTURA RESTAURANTE SAN SALVADOR</h3>"
-        document.getElementById("filas").innerHTML +="<tr class='encabezado'><td>Producto</td><td>Precio</td></tr>";
-        document.getElementById("filas").innerHTML +="<tr><td>" + nombrecombo+ "</td><td>$  " + preciocombo + "</td></tr>";
-        
-        
-        
-        
-        }
-    }
-
-}
-
-
-function productosCB() {
-    mostrarCB = document.getElementsByName("txtCB").value;
-
-    var objeto = document.form2["indi"];
-
-    var totalchecks = objeto.length;
-
-    for (i = 0; i < totalchecks; i++) {
-
-        valor = objeto[i]
-
-        if (objeto[i].checked == true) {
-              var precioproducto = objeto[i].value;
-            //alert("hay objetos seleccionados")
-             var nombreproducto = objeto[i].id;
-            //  document.getElementsByName("txtCBprecio")[0].value = ("$ " + precioproducto);
-            //  document.getElementsByName("txtCB")[0].value = ("El nombre es: " + nombreproducto);
-           
-           document.getElementById("filas").innerHTML +="<tr><td>" + objeto[i].id + "</td><td>  $" + objeto[i].value + "</td></tr>";
-           
-           
-        }
-        else {
-
-        }
-
-    } 
-}
-function factura(){
-    LeerArreglo();
-    productosCB();
-    Total= document.getElementById("total").value;
-    document.getElementById("filas").innerHTML +="<tr class='pagar'><td>Total a pagar: </td><td>  $" + Total+ "</td></tr>";
-
 }
