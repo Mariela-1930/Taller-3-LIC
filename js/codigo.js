@@ -1,6 +1,5 @@
 var textosugerencia, boolsugerencia = false;
 
-
 //Muestra el valor del combo seleccionado
 function Mostrar() {
 
@@ -15,7 +14,8 @@ function Mostrar() {
 
             //variable que guarda el radio button con check que se encontro en el arreglo
             var total = radios[i].value;
-
+            
+            
             //Imprime en el input del total a pagar el valor del radio button seleccionado
             document.getElementsByName('txttotal')[0].value = total;
         }
@@ -148,7 +148,7 @@ function productosCB() {
             var nombreproducto = objeto[i].id;
 
             //Imprimimos los productos seleccionados con su nombre y precio
-            document.getElementById("filas").innerHTML += "<tr><td>" + objeto[i].id + "</td><td>  $" + objeto[i].value + "</td></tr>";
+            document.getElementById("filas").innerHTML += "<tr><td>" + objeto[i].id + "</td><td>  $ " + objeto[i].value + "</td></tr>";
         }
     }
 }
@@ -166,11 +166,11 @@ function factura() {
     Total = document.getElementById("total").value;
 
     //Imprimimos el total de la compra
-    document.getElementById("filas").innerHTML += "<tr class='pagar'><td>Total a pagar: </td><td>  $" + Total + "</td></tr>";
+    document.getElementById("filas").innerHTML += "<tr class='pagar'><td>Total a pagar </td><td>  $ " + Total + "</td></tr>";
 
     //Si hay sugerencia se imprime en la factura
     if (boolsugerencia) {
-        document.getElementById("filas").innerHTML += "<tr class='pagar'><td>Sugerencia: " + textosugerencia + "</td><td></td></tr>";
+        document.getElementById("filas").innerHTML += "<tr><td><span id='titulosugerencia'>Sugerencia: </span>" + textosugerencia + "</td><td></td></tr>";
     }
 }
 
