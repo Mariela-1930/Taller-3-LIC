@@ -1,11 +1,3 @@
-//Variables globales
-var precioproducto = objeto[i].value;
-var nombreproducto = objeto[i].id;
-var preciocombo = radio[i].value
-var nombrecombo = radio[i].id;
-
-
-
 //Muestra el valor del combo seleccionado
 function Mostrar() {
 
@@ -119,9 +111,14 @@ function LeerArreglo() {
     //Variable que lee el nombre de los Radio Buttons
     var radio = document.getElementsByName('combo');
 
+
+
+
+
     //Arreglo que lee todos los radio button con el mismo name
     for (var i = 0; i < radio.length; i++) {
-
+        var preciocombo = radio[i].value
+        var nombrecombo = radio[i].id;
         //Evalua si el radio button esta con check
         if (radio[i].checked) {
 
@@ -137,20 +134,15 @@ function LeerArreglo() {
             //Imprime el nombre del combo seleccionado
             //document.getElementsByName('txtleercombos')[0].value = nombrecombo;
 
-            contenido = "";
-            contenido += "<h3 id='elh3'><span id='ordende'>Factura Restaurante San Salvador</span></h3>\n";
-            contenido += "<h4>Combo seleccionado</h4>";
-            contenido += "<p>-" + nombrecombo + "$" + preciocombo + "</p>";
-            factura.innerHTML = contenido;
+        document.getElementById("factura").innerHTML +="<h3 id='elh3'>FACTURA RESTAURANTE SAN SALVADOR</h3>"
+        document.getElementById("filas").innerHTML +="<tr class='encabezado'><td>Producto</td><td>Precio</td></tr>";
+        document.getElementById("filas").innerHTML +="<tr><td>" + nombrecombo+ "</td><td>$  " + preciocombo + "</td></tr>";
+        
+        
+        
+        
         }
     }
-
-}
-
-function mostrarcombos() {
-
-
-
 
 }
 
@@ -162,29 +154,31 @@ function productosCB() {
 
     var totalchecks = objeto.length;
 
-
-
     for (i = 0; i < totalchecks; i++) {
 
         valor = objeto[i]
 
         if (objeto[i].checked == true) {
-            //   var precioproducto = objeto[i].value;
+              var precioproducto = objeto[i].value;
             //alert("hay objetos seleccionados")
-            // var nombreproducto = objeto[i].id;
+             var nombreproducto = objeto[i].id;
             //  document.getElementsByName("txtCBprecio")[0].value = ("$ " + precioproducto);
             //  document.getElementsByName("txtCB")[0].value = ("El nombre es: " + nombreproducto);
-            contenido = "";
-            contenido += "<h3 id='elh3'><span id='ordende'>Factura Restaurante San Salvador</span></h3>\n";
-            contenido += "<h4>Combo seleccionado</h4>";
-            contenido += "<p>-" + nombrecombo + "$" + preciocombo + "</p>";
-            contenido += "<h4>Productos seleccionados</h4>";
-            contenido += "<p>-" + nombreproducto + "$" + precioproducto + "</p>";
-            factura.innerHTML = contenido;
+           
+           document.getElementById("filas").innerHTML +="<tr><td>" + objeto[i].id + "</td><td>  $" + objeto[i].value + "</td></tr>";
+           
+           
         }
         else {
 
         }
 
-    }
+    } 
+}
+function factura(){
+    LeerArreglo();
+    productosCB();
+    Total= document.getElementById("total").value;
+    document.getElementById("filas").innerHTML +="<tr class='pagar'><td>Total a pagar: </td><td>  $" + Total+ "</td></tr>";
+
 }
